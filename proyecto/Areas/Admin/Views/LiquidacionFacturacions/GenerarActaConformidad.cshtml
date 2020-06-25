@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "GenerarActaConformidad";
+}
+
+<h2>GenerarActaConformidad</h2>
+
+<form action="/" method="post" id="frmGenerarActaConformidad">
+
+    <div class="row">
+        <div class="form-group col-sm-3">
+            <label>Numero de factura</label>
+            <input type="text" class="form-control" name="nFacturaActa" id="nFacturaActa" placeholder="numerofactura" />
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Aprobador</label>
+            <input type="text" class="form-control" name="Firmador" id="Firmador" placeholder="Aprobador" />
+        </div>
+       
+        <div class="form-group col-sm-3">
+            <label>&nbsp;&nbsp;</label><br />
+            <input type="submit" class="btn btn-sm btn-success"  value="Generar" />
+        </div>
+    </div>
+</form>
+
+<script>
+    $("#frmGenerarActaConformidad").on('submit', function (e) {
+        e.preventDefault()
+        var frmData = new FormData(this)
+
+        $.ajax(
+          {
+              url: '@Url.Content("~/admin/LiquidacionFacturacions/GenerarActa")',
+              data: frmData,
+              processData: false,
+              contentType: false,
+              // dataType: "json",
+              type: "POST",
+              //  contentType: "application/json; charset=utf-8",
+              success: function (msg) {
+                  console.log(msg)
+
+                  if (!msg.response) {
+                      title = "Ups"
+                      icon = "warning"
+                  } else {
+                      title = "Exito"
+                      icon = "success"
+                  }
+
+                  Swal.fire({
+                      title: title,
+                      text: msg.message,
+                      icon: icon,
+                      // +' showCancelButton: true,'
+                      confirmButtonColor: "#3085d6",
+                      //   +' cancelButtonColor: "#d33",'
+                      confirmButtonText: "Ok"
+                  }).then((result) => {
+
+                  })
+              },
+              error: function (result) {
+                  alert("ERROR " + result.status + ' ' + result.statusText);
+              }
+          });
+
+    })
+</script>

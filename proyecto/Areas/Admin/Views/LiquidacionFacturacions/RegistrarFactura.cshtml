@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "RegistrarFactura";
+}
+
+<h2>RegistrarFactura</h2>
+
+<form action="/" method="post" id="frmRegistrarFact">
+
+    <div class="row">
+        <div class="form-group col-sm-3">
+            <label>Identificadores</label>
+            <input type="text" class="form-control" name="IdentificadorID" id="IdentificadorID" placeholder="A123, b123, c123"/>
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Mes</label>
+            <input type="text" class="form-control" name="mesFT" id="mesFT" placeholder="Mes mm/yy" />
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Factura</label>
+            <input type="text" class="form-control" name="nFactura" id="nFactura" placeholder="" />
+        </div>
+        <div class="form-group col-sm-3">
+            <label>&nbsp;&nbsp;</label><br />    
+            <input type="submit" class="btn btn-sm btn-success" id="guardarfactura"  />
+        </div>
+   </div>
+</form>
+
+
+<script>
+    $("#frmRegistrarFact").on('submit', function (e) {
+        e.preventDefault()
+        var frmData = new FormData(this)
+        
+        $.ajax(
+          {
+              url: '@Url.Content("~/admin/LiquidacionFacturacions/RegistrarFt")',
+              data: frmData,
+              processData: false,
+              contentType: false,
+              // dataType: "json",
+              type: "POST",
+              //  contentType: "application/json; charset=utf-8",
+              success: function (msg) {
+                  console.log(msg)
+                  
+                  if (!msg.response) {
+                      title = "Ups"
+                      icon = "warning"
+                  } else {
+                      title = "Exito"
+                      icon = "success"
+                  }
+
+                  Swal.fire({
+                      title: title,
+                      text: msg.message,
+                      icon: icon,
+                      // +' showCancelButton: true,'
+                      confirmButtonColor: "#3085d6",
+                      //   +' cancelButtonColor: "#d33",'
+                      confirmButtonText: "Ok"
+                  }).then((result) => {
+                    
+                  })
+              },
+              error: function (result) {
+                  alert("ERROR " + result.status + ' ' + result.statusText);
+              }
+          });
+
+    })
+</script>
