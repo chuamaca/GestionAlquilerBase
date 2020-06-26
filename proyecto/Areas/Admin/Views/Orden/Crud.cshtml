@@ -452,6 +452,10 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
 
                                     <div class="col-sm-2">
                                         <div class="form-group form-group-sm">
+
+                                            <span>
+                                                <i class="fa fa-folder"></i>
+                                            </span>
                                             @Html.LabelFor(x => x.numeroorden, new { @class = "" })
                                             <div class="">
                                                 @Html.TextBoxFor(x => x.numeroorden, new { @class = "form-control form-control-sm", placeholder = "" })
@@ -462,6 +466,7 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
 
                                     <div class="col-sm-2">
                                         <div class="form-group form-group-sm ">
+
                                             @Html.LabelFor(x => x.motivorenting, new { @class = "" })
                                             <div class="">
                                                 @Html.TextBoxFor(x => x.motivorenting, new { @class = "form-control ", placeholder = "ALQUILER" })
@@ -481,45 +486,80 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
 
                                     <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.fsolicitudorden, new { @class = "" })
-                                        <div class="">
-                                            @Html.TextBoxFor(x => x.fsolicitudorden, new { @class = "form-control datepicker" })
-                                            @Html.ValidationMessageFor(x => x.fsolicitudorden, null, new { @class = "label label-danger" })
+                                        <div class="input-group">
+                                                @Html.TextBoxFor(x => x.fsolicitudorden, new { @class = "form-control datepicker" })
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
+                                          @Html.ValidationMessageFor(x => x.fsolicitudorden, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
 
                                     <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.fentregaorden, new { @class = "" })
-                                        <div class="">
+                                        <div class="input-group">
                                             @Html.TextBoxFor(x => x.fentregaorden, new { @class = "form-control datepicker" })
+
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
+
                                             @Html.ValidationMessageFor(x => x.fentregaorden, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
+
+
                                     <div class="form-group form-group-sm col-sm-2">
+
+                                        <span>
+                                            <i class="fa fa-barcode"></i>
+                                        </span>
                                         @Html.LabelFor(x => x.codigoorden, new { @class = "" })
                                         <div class="">
-                                            @Html.TextBoxFor(x => x.codigoorden, new { @class = "", placeholder = "" })
+                                            @Html.TextBoxFor(x => x.codigoorden, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.codigoorden, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-2">
+
+
+
+                                    <div class="form-group form-group-sm col-sm-4">
                                         @Html.LabelFor(x => x.empresaorden, new { @class = "" })
-                                        <div class="">
+                                        <div class="input-group">
+
+
                                             @Html.EditorFor(x => x.empresaorden, new { htmlAttributes = new { @class = "form-control", placeholder = "Buscar Empresa" } })
+
+                                            <span class="input-group-addon">
+                                                <i class="ace-icon fa fa-search nav-search-icon"></i>
+                                            </span>
+
                                             @Html.ValidationMessageFor(x => x.empresaorden, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-2">
+
+
+
+
+                                    <div class="form-group form-group-sm col-sm-3">
                                         @Html.LabelFor(x => x.sucursalorden, new { @class = "" })
-                                        <div class="">
+                                        <div class="input-group">
                                             @Html.EditorFor(x => x.sucursalorden, new { htmlAttributes = new { @class = "form-control", placeholder = "Buscar Sucursal" } })
+
+                                            <span class="input-group-addon">
+                                                <i class="ace-icon fa fa-search nav-search-icon"></i>
+                                            </span>
                                             @Html.ValidationMessageFor(x => x.sucursalorden, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
 
-                                    <div class="form-group form-group-sm col-sm-2">
+                                    <div class="form-group form-group-sm col-sm-4">
                                         @Html.LabelFor(x => x.clienteorden, new { @class = "" })
-                                        <div class="">
+                                        <div class="input-group">
                                             @Html.EditorFor(x => x.clienteorden, new { htmlAttributes = new { @class = "form-control", placeholder = "Buscar Cliente" } })
+                                            <span class="input-group-addon">
+                                                <i class="ace-icon fa fa-search"></i>
+                                            </span>
                                             @Html.ValidationMessageFor(x => x.clienteorden, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
@@ -537,61 +577,23 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
                                             @Html.ValidationMessageFor(x => x.refacturableorden, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
+                                 
                                     <div class="form-group form-group-sm col-sm-2">
-                                        <label>responsable</label>
-                                        <div>
-                                            <button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#exampleModal">
-                                                <span class="glyphicon glyphicon-list-alt"></span> Resposable de Cuenta
-                                            </button>
-                                        </div>
-                                        <div id="my-modal" class="modal fade" tabindex="-1">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                        <h3 class="smaller lighter blue no-margin">A modal with a slider in it!</h3>
-                                                    </div>
 
-                                                    <div class="modal-body">
-                                                        Some content
-                                                        <br />
-                                                        <br />
-                                                        <br />
-                                                        <br />
-                                                        <br />
-                                                        1
-                                                        <br />
-                                                        <br />
-                                                        <br />
-                                                        <br />
-                                                        <br />
-                                                        2
-                                                    </div>
+                                        <span class="icon-bar">
+                                         
+                                            <i class="fa fa-desktop"></i>
+                                            <i class="fa fa-laptop"></i>
 
-                                                    <div class="modal-footer">
-                                                        <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
-                                                            <i class="ace-icon fa fa-times"></i>
-                                                            Close
-                                                        </button>
-                                                    </div>
-                                                </div><!-- /.modal-content -->
-                                            </div><!-- /.modal-dialog -->
-                                        </div>
-                                    </div>
-                                    <div class="form-group form-group-sm col-sm-2">
+                                        </span>
                                         @Html.LabelFor(x => x.hardwaredevice, new { @class = "" })
-                                        <div class="">
+                                        <div class="input-group">
                                             @Html.TextBoxFor(x => x.hardwaredevice, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.hardwaredevice, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-2">
-                                        @Html.LabelFor(x => x.sofwareorden, new { @class = "" })
-                                        <div class="">
-                                            @Html.TextBoxFor(x => x.sofwareorden, new { @class = "form-control", placeholder = "" })
-                                            @Html.ValidationMessageFor(x => x.sofwareorden, null, new { @class = "label label-danger" })
-                                        </div>
-                                    </div>
+
+                                
 
                                     <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.cantidadhardware, new { @class = "" })
@@ -600,7 +602,6 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
                                             @Html.ValidationMessageFor(x => x.cantidadhardware, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-
                                     <div class="form-group form-group-sm col-sm-2">
                                         @if (Model.idorden > 0)
                                         {
@@ -618,14 +619,67 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
                                                 <select id="tipohardwaree" name="tipohardware" class="form-control">
                                                     <option value="">Seleccione</option>
                                                     @*<option value="tipo 1">1</option>
-                            <option value="tipo 2">2</option>
-                            <option value="tipo 3">3</option>
-                            <option value="tipo 4">4</option>*@
+                        <option value="tipo 2">2</option>
+                        <option value="tipo 3">3</option>
+                        <option value="tipo 4">4</option>*@
                                                 </select>
                                                 @Html.ValidationMessageFor(x => x.tipohardware, null, new { @class = "label label-danger" })
                                             </div>
                                         }
                                     </div>
+
+
+                                    <div class="form-group form-group-sm col-sm-2">
+                                        <label>responsable</label>
+                                        <div>
+                                            <button type="button" class="btn btn-xs btn-info" data-toggle="modal" data-target="#exampleModal">
+                                                <span class="fa fa-users"></span> Resposable de Cuenta
+                                            </button>
+                                        </div>
+
+                                        <div id="my-modal" class="modal fade" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                        <h3 class="smaller lighter blue no-margin">A modal with a slider in it!</h3>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Some content
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        1
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                        2
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-sm btn-danger pull-right" data-dismiss="modal">
+                                                            <i class="ace-icon fa fa-times"></i>
+                                                            Close
+                                                        </button>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-group-sm col-sm-3">
+                                        @Html.LabelFor(x => x.sofwareorden, new { @class = "" })
+                                        <div class="">
+                                            @Html.TextAreaFor(x => x.sofwareorden, new { @class = "form-control", placeholder = "" })
+                                            @Html.ValidationMessageFor(x => x.sofwareorden, null, new { @class = "label label-danger" })
+                                        </div>
+                                    </div>
+
+                            
+
+                            
 
                                     <div class="form-group form-group-sm col-sm-4">
                                         @Html.LabelFor(x => x.Observacionesorden, new { @class = "" })
@@ -675,29 +729,39 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
 
                             <div class="">
                                 <fieldset>
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-2">
+                                        <span class="icon-bar">
+                                            <i class="fa fa-credit-card bigger-110"></i>
+                                        </span>
+
                                         @Html.LabelFor(x => x.factura, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.factura, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.factura, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.ftemision, new { @class = "" })
-                                        <div class="">
+                                        <div class="input-group">
                                             @Html.TextBoxFor(x => x.ftemision, new { @class = "form-control datepicker" })
+
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
+
+
                                             @Html.ValidationMessageFor(x => x.ftemision, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    
+                                    <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.ordenservicio, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.ordenservicio, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.ordenservicio, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.rqservicio, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.rqservicio, new { @class = "form-control", placeholder = "" })
@@ -706,56 +770,72 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
                                     </div>
 
 
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-3">
                                         @Html.LabelFor(x => x.aprobadorrq, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.aprobadorrq, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.aprobadorrq, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-3">
                                         @Html.LabelFor(x => x.correoaprobador, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.correoaprobador, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.correoaprobador, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.contratomarco, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.contratomarco, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.contratomarco, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-3">
                                         @Html.LabelFor(x => x.tipocliente, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.tipocliente, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.tipocliente, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-3">
                                         @Html.LabelFor(x => x.grupoeconomico, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.grupoeconomico, new { @class = "form-control", placeholder = "" })
                                             @Html.ValidationMessageFor(x => x.grupoeconomico, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+                                    <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.rentinginicio, new { @class = "" })
-                                        <div class="">
+                                        <div class="input-group">
                                             @Html.TextBoxFor(x => x.rentinginicio, new { @class = "form-control datepicker" })
+
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
                                             @Html.ValidationMessageFor(x => x.rentinginicio, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+
+                                    <div class="form-group form-group-sm col-sm-2">
                                         @Html.LabelFor(x => x.rentingfin, new { @class = "" })
-                                        <div class="">
+                                        <div class="input-group">
                                             @Html.TextBoxFor(x => x.rentingfin, new { @class = "form-control datepicker" })
+
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar bigger-110"></i>
+                                            </span>
                                             @Html.ValidationMessageFor(x => x.rentingfin, null, new { @class = "label label-danger" })
                                         </div>
                                     </div>
-                                    <div class="form-group form-group-sm col-sm-4">
+
+
+
+                                    <div class="form-group form-group-sm col-sm-2">
+
+                                        <span>
+                                            <i class="fa fa-check-square-o"></i>
+                                        </span>
                                         @Html.LabelFor(x => x.estadoorden, new { @class = "" })
                                         <div class="">
                                             @Html.TextBoxFor(x => x.estadoorden, new { @class = "form-control" })
@@ -860,7 +940,11 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
 
                     </div>
                 </div>
-                <div class="text-right well well-sm">
+
+
+
+
+                @*<div class="text-right well well-sm">
                     @if (Model.idorden > 0)
                     {
                         <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalEnviarCorreoFose"> Enviar Fose</button>
@@ -872,7 +956,31 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
                         <span class="spinner-border spinner-border-sm mr-2"></span>
                         Guardar
                     </button>
+                </div>*@
+
+
+
+             
+                <div class="wizard-actions">
+
+                    <br />
+                    @if (Model.idorden > 0)
+                    {
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalEnviarCorreoFose"> Enviar Fose</button>
+
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalEnviarCorreoGuiaRemision"> Enviar guia de Remision</button>
+
+                    }
+                    <button type="submit" data-ajax="true" class="btn btn-success">
+                        <span class="spinner-border spinner-border-sm mr-2"></span>
+                        Guardar
+                    </button>
+
                 </div>
+
+
+
+
             </div>
         </div>
     </div>
@@ -905,53 +1013,83 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Datos de la Ubcacion Final </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="exampleModalLabel">Datos de la Ubicacion Final </h5>
+                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button>*@
                 </div>
                 <div class="modal-body">
 
-                    <div class="form-group">
-                        @Html.LabelFor(x => x.responsableorden, new { @class = "col-sm-6 control-label pull-left" })
-                        @Html.TextBoxFor(x => x.responsableorden, new { @class = "form-control", placeholder = "" })
-                        @Html.ValidationMessageFor(x => x.responsableorden, null, new { @class = "label label-danger" })
+
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="space-4"></div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.responsableorden, new { @class = "control-label pull-left" })
+                            <div>
+                                @Html.TextBoxFor(x => x.responsableorden, new { @class = "form-control", placeholder = "" })
+                                @Html.ValidationMessageFor(x => x.responsableorden, null, new { @class = "label label-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="space-4"></div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.telefonoresponsableorden, new { @class = "control-label pull-left" })
+                            <div>
+                                @Html.TextBoxFor(x => x.telefonoresponsableorden, new { @class = "form-control", placeholder = "" })
+                                @Html.ValidationMessageFor(x => x.telefonoresponsableorden, null, new { @class = "label label-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="space-4"></div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.redequipoorden, new { @class = "col-sm-4 control-label pull-left" })
+                            <div>
+                                @Html.TextBoxFor(x => x.redequipoorden, new { @class = "form-control", placeholder = "" })
+                                @Html.ValidationMessageFor(x => x.redequipoorden, null, new { @class = "label label-danger" })
+                            </div>
+                        </div>
+ 
+                     
                     </div>
 
 
-                    <div class="form-group">
-                        @Html.LabelFor(x => x.telefonoresponsableorden, new { @class = "col-sm-6 control-label pull-left" })
-                        @Html.TextBoxFor(x => x.telefonoresponsableorden, new { @class = "input-12", placeholder = "" })
-                        @Html.ValidationMessageFor(x => x.telefonoresponsableorden, null, new { @class = "label label-danger" })
+                    <div class="col-xs-12 col-sm-6">
+
+                        <div class="space-4"></div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.tipousuarioorden, new { @class = "control-label pull-left" })
+                            <div>
+                                @Html.TextBoxFor(x => x.tipousuarioorden, new { @class = "form-control", placeholder = "PASS -INTERNO-OTRO" })
+                                @Html.ValidationMessageFor(x => x.tipousuarioorden, null, new { @class = "label label-danger" })
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.equipousuarioorden, new { @class = "control-label pull-left" })
+                            <div>
+                                @Html.TextBoxFor(x => x.equipousuarioorden, new { @class = "form-control", placeholder = "", id = "usuario_ordem" })
+                                @Html.ValidationMessageFor(x => x.equipousuarioorden, null, new { @class = "label label-danger" })
+                            </div>
+                        </div>
+
+                        <div class="space-4"></div>
+                        <div class="form-group">
+                            @Html.LabelFor(x => x.telefonousuarioorden, new { @class = "control-label pull-left" })
+                            <div>
+                               @Html.TextBoxFor(x => x.telefonousuarioorden, new { @class = "form-control", placeholder = "" })
+                            @Html.ValidationMessageFor(x => x.telefonousuarioorden, null, new { @class = "label label-danger" })
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-group-sm">
-                        @Html.LabelFor(x => x.tipousuarioorden, new { @class = "col-sm-4 control-label pull-left" })
-                        @Html.TextBoxFor(x => x.tipousuarioorden, new { @class = "input-12", placeholder = "PASS-INTERNO-OTRO" })
-                        @Html.ValidationMessageFor(x => x.tipousuarioorden, null, new { @class = "label label-danger" })
-                    </div>
-
-                    <div class="form-group-sm">
-                        @Html.LabelFor(x => x.equipousuarioorden, new { @class = "col-sm-4 control-label pull-left" })
-                        @Html.TextBoxFor(x => x.equipousuarioorden, new { @class = "input-12", placeholder = "" , id="usuario_ordem"})
-                        @Html.ValidationMessageFor(x => x.equipousuarioorden, null, new { @class = "label label-danger" })
-                    </div>
-
-                    <div class="form-group-sm">
-                        @Html.LabelFor(x => x.telefonousuarioorden, new { @class = "col-sm-4 control-label pull-left" })
-                        @Html.TextBoxFor(x => x.telefonousuarioorden, new { @class = "input-12", placeholder = "" })
-                        @Html.ValidationMessageFor(x => x.telefonousuarioorden, null, new { @class = "label label-danger" })
-                    </div>
-
-                    <div class="form-group-sm">
-                        @Html.LabelFor(x => x.redequipoorden, new { @class = "col-sm-4 control-label pull-left" })
-                        @Html.TextBoxFor(x => x.redequipoorden, new { @class = "input-12", placeholder = "" })
-                        @Html.ValidationMessageFor(x => x.redequipoorden, null, new { @class = "label label-danger" })
-                    </div>
 
                     <div class="form-group-sm">
                         @Html.LabelFor(x => x.ubicacionequipoorden, new { @class = "col-sm-4 control-label pull-left" })
-                        @Html.TextBoxFor(x => x.ubicacionequipoorden, new { @class = "input-12", placeholder = "" })
+                        @Html.TextBoxFor(x => x.ubicacionequipoorden, new { @class = "form-control", placeholder = "" })
                         @Html.ValidationMessageFor(x => x.ubicacionequipoorden, null, new { @class = "label label-danger" })
                     </div>
 
@@ -970,14 +1108,14 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
             <div class="modal-content">
                 <form action="/" method="post">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Datos de la Ubcacion Final </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalLabel">Enviar Fose </h5>
+                        @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                        </button>
+                        </button>*@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <input class="input-12" id="correoFrom" type="type" name="name" placeholder="Ingrese email" value="" />
+                            <input class="form-control" id="correoFrom" type="type" name="name" placeholder="Ingrese correo" value="" />
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -994,14 +1132,14 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
             <div class="modal-content">
                 <form action="/" method="post">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Datos de la Ubcacion Final </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalLabel">Enviar Guia de Remisión </h5>
+                        @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                        </button>
+                        </button>*@
                     </div>
                     <div class="modal-body">
                         <div>
-                            <input class="input-12" id="correoFromGuiaRemision" type="type" name="name" placeholder="Ingrese email" value="" />
+                            <input class="form-control" id="correoFromGuiaRemision" type="type" name="name" placeholder="Ingrese correo" value="" />
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -1020,9 +1158,9 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
 
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabelOS">Seleccionar Meses de la OS</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button>*@
             </div>
             @using (Html.BeginForm("GuardarServicio", "servicios", FormMethod.Post, new { id = "frmServicio" }))
             {
@@ -1078,16 +1216,6 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
                         </div>
                         <div class="col-xs-12 col-sm-6">
                           
-                            @*<div class="space-4"></div>
-
-                            <div class="form-group">
-                                <label for="form-field-username">ID SERVICIO</label>
-
-                                <div>
-                                    <input type="text" class="form-control" id="idservsicio" name="idservsicio"  />
-                                </div>
-                            </div>*@
-
                             <div class="space-4"></div>
 
                             <div class="form-group">
@@ -1116,58 +1244,14 @@ PARA CARGAR INVENTARIO EN UN VISTA PARCIAL
 
                         </div>
 
+            
                         <div class="col-xs-12 col-xs-12">
-                            <div class="space-4"></div>
+                            <div class="space-12"></div>
                             <div id="groupMOS" class="form-group" >
                                 <label class=""> MESES OS </label>
                                 <select multiple="" id="mesesAfectado" name="Objmeses" class="select2" data-placeholder="Selecciona el mes"></select>
-                              
-                           
                             </div>
-
-                            </div>
-
-
-                          
-                    @*</row>*@
-
-                    @*<div class="form-group">
-        @Html.LabelFor(x => x.idorden, new { @class = "col-sm-4 control-label pull-left" })
-        @Html.TextBoxFor(x => x.idorden, new { @class = "form-control", placeholder = "" })
-        @Html.ValidationMessageFor(x => x.idorden, null, new { @class = "label label-danger" })
-    </div>
-
-    <div class="form-group">
-        <label> Id</label>
-        <input type="text" class="form-control" id="idservsicio" name="idservsicio" value="@ViewBag.message2" />
-    </div>
-
-                    <div class="form-group">
-                        <label> RQ / Requerimiento</label>
-                        <input type="text" class="form-control" id="rq" name="rq" />
-                    </div>
-
-                    <div class="form-group">
-                        <label> Orde de Servicio / Compra</label>
-                        <input type="text" class="form-control" id="os" name="os" />
-                    </div>
-
-
-                    <div class="form-group">
-                        <label> Aprobador</label>
-                        <input type="text" class="form-control" id="aprobador" name="aprobador" />
-                    </div>
-                    <!--eSTADO TIENEN QUE IR SIEMPRE COMO 1 PERO OCULTO-->
-                    <div class="form-group">
-                        <label> Estado</label>
-                        <input type="text" class="form-control" id="estadoos" name="estadoos" value="1" />
-                    </div>
-
-                    *@
-               
-
-                  
-
+                        </div>
 
                 </div>
                 <div class="modal-footer">

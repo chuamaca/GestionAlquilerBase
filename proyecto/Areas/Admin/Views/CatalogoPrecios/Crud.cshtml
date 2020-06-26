@@ -58,14 +58,9 @@
         });
     });
 </script>
-<div>
-    <a href="~/admin/catalogoprecios/crud" class="btn btn-app btn-info btn-xs">
-        <i class="ace-icon fa fa-folder-open-o bigger-110"></i>
-    </a>
-    <a href="~/admin/catalogoprecios/index" class="btn btn-app btn-success btn-xs">
-        <i class="ace-icon fa fa-exchange bigger-110"></i>
-    </a>
-</div>
+
+
+
 @using (Html.BeginForm("Guardar", "catalogoprecios", FormMethod.Post))
 {
 
@@ -89,74 +84,88 @@
                                     <div class="form-group">
 
                                         @Html.HiddenFor(x => x.idCatalogoPrecio)
-                                        <div class="col-md-4">
+                                     
                                             @Html.LabelFor(x => x.empresa, new { @class = "col-sm-2 control-label pull-left" })
-                                            <div class="col-md-8">
-                                                @Html.TextBoxFor(x => x.empresa, new { @class = "input-12", placeholder = "empresa" })
-                                                @Html.ValidationMessageFor(x => x.empresa, null, new { @class = "label label-danger" })
-                                            </div>
+                                        <div class="col-md-4">
+                                            @Html.TextBoxFor(x => x.empresa, new { @class = "input-sm col-sm-12", placeholder = "empresa" })
+                                            @Html.ValidationMessageFor(x => x.empresa, null, new { @class = "label label-danger" })
+
                                         </div>
 
-                                        <div class="col-md-4">
-                                            @Html.LabelFor(x => x.nombre, new { @class = "col-sm-2 control-label pull-left" })
-                                            <div class="col-md-8">
-                                                @Html.TextBoxFor(x => x.nombre, new { @class = "input-12", placeholder = "nombre" })
-                                                @Html.ValidationMessageFor(x => x.nombre, null, new { @class = "label label-danger" })
-                                            </div>
+                                    
+                                            @Html.LabelFor(x => x.nombre, new { @class = "col-sm-1 control-label pull-left" })
+                                        <div class="col-md-3">
+                                            @Html.TextBoxFor(x => x.nombre, new { @class = "input-sm col-sm-8", placeholder = "Tipo Equipo" })
+                                            @Html.ValidationMessageFor(x => x.nombre, null, new { @class = "label label-danger" })
+
                                         </div>
 
-                                        <div class="col-md-4">
-                                            @Html.LabelFor(x => x.caracteristicas, new { @class = "col-sm-3 control-label pull-left" })
-                                            <div class="col-md-9">
-                                                @Html.TextBoxFor(x => x.caracteristicas, new { @class = "input-12", placeholder = "caracteristicas" })
-                                                @Html.ValidationMessageFor(x => x.caracteristicas, null, new { @class = "label label-danger" })
-                                            </div>
-                                        </div>
+                                  
 
                                      </div>
+
                                    <div class="form-group">
-                                       <div class="col-md-4">
-                                           @Html.LabelFor(x => x.precio, new { @class = "col-sm-2 control-label pull-left" })
-                                           <div class="col-md-8">
-                                               @Html.TextBoxFor(x => x.precio, new { @class = "input-12", placeholder = "precio" })
-                                               @Html.ValidationMessageFor(x => x.precio, null, new { @class = "label label-danger" })
-                                           </div>
+                                     
+                                           @Html.LabelFor(x => x.caracteristicas, new { @class = "col-sm-2 control-label pull-left" })
+                                       <div class="col-md-3">
+                                           @Html.TextBoxFor(x => x.caracteristicas, new { @class = "input-sm col-sm-12", placeholder = "Caracteristicas" })
+                                           @Html.ValidationMessageFor(x => x.caracteristicas, null, new { @class = "label label-danger" })
+
                                        </div>
 
-                                       <div class="col-md-4">
-                                           @Html.LabelFor(x => x.otros, new { @class = "col-sm-2 control-label pull-left" })
-                                           <div class="col-md-8">
-                                               @Html.TextBoxFor(x => x.otros, new { @class = "input-12", placeholder = "otros" })
-                                               @Html.ValidationMessageFor(x => x.otros, null, new { @class = "label label-danger" })
-                                           </div>
-                                       </div>
-                                        <div class="col-md-4">
-                                               @Html.LabelFor(x => x.estado, new { @class = "col-sm-2 control-label pull-left" })
-                                               <div class="col-md-8">
-                                                   <select name="estado" class="input-12">
-                                                       <option @(Model.estado == "0" ? "selected" : "") value="0"> No Activo </option>
-                                                       <option @(Model.estado == "1" ? "selected" : "") value="1"> Activo </option>
-                                                   </select>
-                                                   @Html.ValidationMessageFor(x => x.estado, null, new { @class = "label label-danger" })
-                                               </div>
-                                         </div>
-                                    </div>
-                                    
 
-                                    <div class="form-group">
-                                        
-                                      
-                                    </div>
+                                       @Html.LabelFor(x => x.precio, new { @class = "col-sm-1 control-label pull-left" })
+                                       <div class="col-md-2">
+                                           @Html.TextBoxFor(x => x.precio, new { @class = "input-sm col-sm-6", placeholder = "Precio" })
+                                           @Html.ValidationMessageFor(x => x.precio, null, new { @class = "label label-danger" })
+
+                                       </div>
+
+
+
+                               @*@Html.LabelFor(x => x.estado, new { @class = "col-sm-1 control-label pull-left" })*@
+
+                                       <div class="col-md-2">
+                                           <select name="estado" class="input-sm">
+                                               <option @(Model.estado == "0" ? "selected" : "") value="0"> No Activo </option>
+                                               <option @(Model.estado == "1" ? "selected" : "") value="1"> Activo </option>
+                                           </select>
+                                           @Html.ValidationMessageFor(x => x.estado, null, new { @class = "label label-danger" })
+
+                                       </div>
+
+
+                                   </div>
+
+
+                                   <div class="form-group">
+                                       @Html.LabelFor(x => x.otros, new { @class = "col-sm-2 control-label pull-left" })
+                                       <div class="col-md-6">
+                                           @Html.TextAreaFor(x => x.otros, new { @class = "input-sm col-md-12", placeholder = "Observaciones" })
+                                           @Html.ValidationMessageFor(x => x.otros, null, new { @class = "label label-danger" })
+                                       </div>
+                                   </div>
                                     
                                 </fieldset>
+
+                                <div class="hr hr2 hr-double"></div>
+                                <div class="wizard-actions">
+
+                                    <br />
+
+                                    <button type="submit" data-ajax="true" class="btn btn-primary">
+                                        Guardar
+
+                                        <i class="ace-icon fa fa-floppy-o icon-on-right"></i>
+                                    </button>
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-right well well-sm">
-                    <button type="submit" data-ajax="true" class="btn btn-primary">Guardar</button>
-                </div>
+               
 
             </div>
         </div>

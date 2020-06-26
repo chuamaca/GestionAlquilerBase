@@ -209,14 +209,22 @@
                     </div>
 
                     <div class="col-md-6">
-                        <input type="text" id="busquedahw" class="input-12" value="" placeholder="" />
+                        <input type="text" id="busquedahw" class="input-sm col-md-12" value="" placeholder="" />
 
+                        <br />
                         <br />
                         <a id="navbar-search-input" href="http://soportenetcorporate.ddns.net/nsuite/xadm/active-view?edit= + ">Editar</a>
 
-                        <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#MODALHARDWAREDETAIL">
-                            <span class="fa fa fa-plus-square"></span>  GENERAR GUIA REMISION
+                        <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#MODALHARDWAREDETAIL">
+                            <span class="fa fa-check-square-o"></span> GUIA REMISION
                         </button>
+                        &nbsp &nbsp
+                    
+                            <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#MODALACCESORIOS">
+                                <span class="fa fa fa-plus-square"></span>  ACCESORIOS
+                            </button>
+            
+
 
                     </div>
 
@@ -225,36 +233,37 @@
             </div>
         </div>
 
-        <hr />
-
-
-
-
-
+ 
         <div class="row">
 
-           
+            @Html.TextBoxFor(x => x.fregistro, new { @class = "input-12 datepicker", @type = "hidden" })
 
-                    @Html.TextBoxFor(x => x.fregistro, new { @class = "input-12 datepicker", @type = "hidden" })
-                 
-                
-                    
-            <div class="form-group">
-
-                @Html.LabelFor(x => x.seriedt, new { @class = "col-sm-2 control-label pull-left" })
-                <div class="col-md-3">
-                    @Html.TextBoxFor(x => x.seriedt, new { @class = "input-12" })
-                    @Html.ValidationMessageFor(x => x.seriedt, null, new { @class = "label label-danger" })
+            <div class="col-sm-4">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.seriedt, new { @class = "control-label pull-left" }) &nbsp &nbsp
+                    <span>
+                        <i class="fa fa-camera-retro"></i>
+                    </span>
+                  
+                    <div class="">
+                        @Html.TextBoxFor(x => x.seriedt, new { @class = "form-control form-control-sm" })
+                        @Html.ValidationMessageFor(x => x.seriedt, null, new { @class = "label label-danger" })
+                    </div>
                 </div>
+            </div>
 
-                @Html.LabelFor(x => x.usuariof, new { @class = "col-sm-1 control-label pull-left" })
-                <div class="col-md-2">                  
-                    <select onchange="elegirsaldo(this);" class="collapsed-box input-12" name="usuariof" id="combo_usuarios">
-                        
-                    </select>
-                </div>
-                <script>
-                   
+            <div class="col-sm-3">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.usuariof, new { @class = "control-label pull-left" })  &nbsp
+                    <span>
+                        <i class="fa fa-user"></i>
+                    </span>
+
+                    <div class="">
+                     
+                        <select onchange="elegirsaldo(this);" class="collapsed-box form-control form-control-sm" name="usuariof" id="combo_usuarios"></select>
+                        <script>
+
                         function elegirsaldo(el) { // recibimos por parametro el elemento select
                             // obtenemos la opción seleccionada .
                             var orden = $('option:selected', el).data('orden');
@@ -262,191 +271,233 @@
                             $("#telefono_usuario").val(array_tel[orden])
                             console.log(array_tel[orden])
                         }
-                    
-                    
-                </script>
 
-               
-                @Html.LabelFor(x => x.telefonof, new { @class = "col-sm-1 control-label pull-left" })
-                <div class="col-md-2">
-                    @Html.TextBoxFor(x => x.telefonof, new { @class = "input-12" , id="telefono_usuario"})
-                    @Html.ValidationMessageFor(x => x.telefonof, null, new { @class = "label label-danger" })
-                </div>
-               
-               
-           
-            </div>
-            
+                        </script>
 
-        </div>
-
-
-
-
-
-
-        <div class="row">
-            @Html.LabelFor(x => x.ubicacion, new { @class = "col-sm-2 control-label pull-left" })
-            <div class="col-md-3">
-
-                @Html.TextBoxFor(x => x.ubicacion, new { @class = "input-12" , id="aquii"})
-                @Html.ValidationMessageFor(x => x.ubicacion, null, new { @class = "label label-danger" })
-            </div>
-
-            @Html.LabelFor(x => x.estadodetalleorden, new { @class = "col-sm-1 control-label pull-left" })
-            <div class="col-md-2">
-                <select id="estadodetalleorden" name="estadodetalleorden" class="input-12">
-
-                    @if (Model.estadodetalleorden == 1)
-                    {
-                        <option value="1">PRODUCCION</option>
-                        <option value="0">CERRADO</option>
-                    }
-                    else if (Model.estadodetalleorden == 0)
-                    {
-                        <option value="1">PRODUCCION</option>
-                        <option value="0">CERRADO</option>
-                    }
-                </select>
-            </div>
-      
-
-                @*<div class="col-md-3">
-
-                @Html.TextBoxFor(x => x.estadodetalleorden, new { @class = "input-12" })
-                @Html.ValidationMessageFor(x => x.estadodetalleorden, null, new { @class = "label label-danger" })
-            </div>*@
-
-                <div>
-
-                  
-
-                    <label class="col-sm-1 control-label pull-left"> ACCESORIOS</label>
-                    <div class="col-md-3">
-                        <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#MODALACCESORIOS">
-                            <span class="fa fa fa-plus-square"></span>  AGREGAR
-                        </button>
                     </div>
                 </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.telefonof, new { @class = "control-label pull-left" }) &nbsp
+                    <span>
+                        <i class="fa fa-camera-retro"></i>
+                    </span>
 
-           
+                    <div class="">
+                        @Html.TextBoxFor(x => x.telefonof, new { @class = "form-control form-control-sm", id = "telefono_usuario" })
+                        @Html.ValidationMessageFor(x => x.telefonof, null, new { @class = "label label-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.identificador, new { @class = "control-label pull-left" })
+                    <div class="">
+                        @Html.TextBoxFor(x => x.identificador, new { @class = "form-control form-control-sm" })
+                        @Html.ValidationMessageFor(x => x.identificador, null, new { @class = "label label-danger" })
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <br />
+
+
+
+
+
         <div class="row">
-            <div class="form-group">
-                @Html.LabelFor(x => x.obscambio, new { @class = "col-sm-2 control-label pull-left" })
-                <div class="col-md-6">
-                    @Html.TextAreaFor(x => x.obscambio, new { @class = "input-12" })
-                    @Html.ValidationMessageFor(x => x.obscambio, null, new { @class = "label label-danger" })
+
+            <div class="col-sm-3">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.ubicacion, new { @class = "control-label pull-left" })
+                    <div class="">
+                        @Html.TextBoxFor(x => x.ubicacion, new { @class = "form-control form-control-sm", id = "aquii" })
+                        @Html.ValidationMessageFor(x => x.ubicacion, null, new { @class = "label label-danger" })
+                    </div>
                 </div>
             </div>
-
-
-            <div class="form-group">
-                @Html.LabelFor(x => x.sefacturo, new { @class = "col-sm-1 control-label pull-left" })
-                <div class="col-md-2">
-                    @Html.TextBoxFor(x => x.sefacturo, new { @class = "input-12" })
-                    @Html.ValidationMessageFor(x => x.sefacturo, null, new { @class = "label label-danger" })
-                </div>
-            </div>
-        </div>
 
         
-        <hr />
-        <input hidden id="mitipoelegido" value="@ViewBag.mitipoelegido"/>
-        <input hidden id="empresaelegida" value="@ViewBag.empresaelegida" />
-        <div class="row">
+            <div class="col-md-2">
 
-            <div class="form-group">
-                @Html.LabelFor(x => x.tipohardwareestado, new { @class = "col-sm-2 control-label pull-left" })
-                <div class="col-sm-2 col-md-2">
-                    @*@Html.TextBoxFor(x => x.tipohardwareestado, new { @class = "input-12" })*@
-                    <select id="tipohardwareestado" name="tipohardwareestado">
-                        <option value="eligue">Eligue</option>
-                        @*<option value="">Normal</option>
-                        <option value="Upgrade Hardware">Upgrade Hardware</option>
-                        <option value="Upgrade Software">Upgrade Software</option>
-                        <option value="Negociado">Negociado</option>*@
-                    </select>
-                    @Html.ValidationMessageFor(x => x.tipohardwareestado, null, new { @class = "label label-danger" })
-                </div>
-           
-                @Html.LabelFor(x => x.descripciontipohardwareestado, new { @class = "col-sm-1 control-label pull-left" })
-                <div class="col-md-3">
-                    @Html.TextAreaFor(x => x.descripciontipohardwareestado, new { @class = "input-12" })
-                    @Html.ValidationMessageFor(x => x.descripciontipohardwareestado, null, new { @class = "label label-danger" })
-                </div>
-
-                @Html.LabelFor(x => x.identificador, new { @class = "col-sm-1 control-label pull-left" })
-                <div class="col-md-2">
-                    @Html.TextBoxFor(x => x.identificador, new { @class = "input-12" })
-                    @Html.ValidationMessageFor(x => x.identificador, null, new { @class = "label label-danger" })
-                </div>
-
-            </div>
-        </div>
-        <hr />
-
-        <div class="panel panel-box-success">
-            <div class="panel-body">
-
-                <div class="form-group">
-
-                
-
-                    @Html.LabelFor(x => x.moneda, new { @class = "col-sm-1 control-label pull-left" })
-                    <div class="col-md-2">
-                          @*@Html.TextBoxFor(x => x.valor, new { @class = "input-12" })*@
-                        <select id="moneda" name="moneda">
-                            <option value="MN">MN</option>
-                            <option value="ME">ME</option>
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.estadodetalleorden, new { @class = "control-label pull-left" })
+                    <div class="">
+                      
+                        <select id="estadodetalleorden" name="estadodetalleorden" class="form-control form-control-sm">
+                            @if (Model.estadodetalleorden == 1)
+                            {
+                                <option value="1">PRODUCCION</option>
+                                <option value="0">CERRADO</option>
+                            }
+                            else if (Model.estadodetalleorden == 0)
+                            {
+                                <option value="1">PRODUCCION</option>
+                                <option value="0">CERRADO</option>
+                            }
                         </select>
-                        @Html.ValidationMessageFor(x => x.moneda, null, new { @class = "label label-danger" })
                     </div>
+                </div>
+            </div>
 
-
-
-                    <script>
-                        $("#valor").prop("readonly",true)
-                        $(document).ready(function () {
-                            $("#checkvalor").click(function () {
-                                if ($(this).is(":checked")) {
-                                    $("#valor").prop("readonly", false);
-                                } else {
-                                    $("#valor").prop("readonly", true);
-                                }
-                            });
-                        });
-
-                    </script>
-                    @Html.LabelFor(x => x.valor, new { @class = "col-sm-1 control-label pull-left" })
-                    <div class="col-md-2">
-                        <label class="checkbox-inline text-red"><input class="icheck" type="checkbox" id="checkvalor" value="feedback" /> <strong>cambiar precio ! </strong>  </label>
-                        @Html.TextBoxFor(x => x.valor, new { @class = "input-12" })
-                        @Html.ValidationMessageFor(x => x.valor, null, new { @class = "label label-danger" })
+            <div class="col-sm-2">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.sefacturo, new { @class = "control-label pull-left" })
+                    <div class="">
+                        @Html.TextBoxFor(x => x.sefacturo, new { @class = "form-control form-control-sm" })
+                        @Html.ValidationMessageFor(x => x.sefacturo, null, new { @class = "label label-danger" })
                     </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.tipohardwareestado, new { @class = "control-label pull-left" })
+                    <div class="">
 
-                    @Html.LabelFor(x => x.IGV, new { @class = "col-sm-1 control-label pull-left" })
-                    <div class="col-md-2">
-                        @Html.TextBoxFor(x => x.IGV, new { @class = "input-12", disabled = "disabled" })
-                        @Html.ValidationMessageFor(x => x.IGV, null, new { @class = "label label-danger" })
+                        <select id="tipohardwareestado" name="tipohardwareestado">
+                            <option value="eligue">Eligue</option>
+
+                        </select>
+                        @Html.ValidationMessageFor(x => x.tipohardwareestado, null, new { @class = "label label-danger" })
+
                     </div>
+                </div>
+            </div>
 
-                    @Html.LabelFor(x => x.total, new { @class = "col-sm-1 control-label pull-left" })
-                    <div class="col-md-2">
-                        @Html.TextBoxFor(x => x.total, new { @class = "input-12", disabled = "disabled" })
-                        @Html.ValidationMessageFor(x => x.total, null, new { @class = "label label-danger" })
+
+            <div class="col-sm-2">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.descripciontipohardwareestado, new { @class = "control-label pull-left" })
+                    <div class="">
+                        @Html.TextBoxFor(x => x.descripciontipohardwareestado, new { @class = "form-control form-control-sm" })
+                        @Html.ValidationMessageFor(x => x.descripciontipohardwareestado, null, new { @class = "label label-danger" })
                     </div>
+                </div>
+            </div>
 
 
-                  
+            <div class="col-sm-4">
+                <div class="form-group form-group-sm">
+                    @Html.LabelFor(x => x.obscambio, new { @class = "control-label pull-left" })
+                    <div class="">
+                        @Html.TextBoxFor(x => x.obscambio, new { @class = "form-control form-control-sm" })
+                        @Html.ValidationMessageFor(x => x.obscambio, null, new { @class = "label label-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group form-group-sm input-group">
+
+                    @*<div class="table-header">
+                        VALORES DE ALQUILER !
+                    </div>*@
+                    <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                        <tr>
+                            <td>@Html.LabelFor(x => x.moneda, new { @class = "control-label pull-left" })</td>
+                            <td>
+
+                                <span>
+                                    <i class="fa fa-pencil-square-o"></i>
+                                </span>
+
+                            </td>
+
+                            <td> @Html.LabelFor(x => x.valor, new { @class = "control-label pull-left" }) </td>
+                           
+                            <td>IGV</td>
+                            <td>TOTAL</td>
+                        </tr>
+                        <tr>
+                            <td>
+                              
+                                    @*@Html.TextBoxFor(x => x.valor, new { @class = "input-12" })*@
+                                    <select id="moneda" name="moneda">
+                                        <option value="MN">MN</option>
+                                        <option value="ME">ME</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(x => x.moneda, null, new { @class = "label label-danger" })
+                          
+                                <script>
+                                    $("#valor").prop("readonly", true)
+                                    $(document).ready(function () {
+                                        $("#checkvalor").click(function () {
+                                            if ($(this).is(":checked")) {
+                                                $("#valor").prop("readonly", false);
+                                            } else {
+                                                $("#valor").prop("readonly", true);
+                                            }
+                                        });
+                                    });
+
+                                </script>
+
+
+
+                            </td>
+                            <td height="20px">
+
+                                <input class="icheck" type="checkbox" id="checkvalor" value="feedback" />
+
+                            </td>
+                            <td>
+                               
+
+                                    @Html.TextBoxFor(x => x.valor, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.valor, null, new { @class = "label label-danger" })
+
+                        
+                            </td>
+                            <td>
+                                @Html.TextBoxFor(x => x.IGV, new { @class = "form-control", disabled = "disabled" })
+                            </td>
+                    
+                            <td>
+
+                               
+                                    @Html.TextBoxFor(x => x.total, new { @class = "form-control", disabled = "disabled" })
+                               
+
+                            </td>
+                        </tr>
+                    </table>
+
+
+
+                    </div>
+            </div>
+
+
+
+
+                <div class="text-right input-group alert alert-block alert-success">
 
                     
 
-                </div>
-            </div>
+                    <label class="checkbox-inline text-red"><input class="icheck" type="checkbox" id="chkdwn2" value="feedback" /> <strong>  Confirmar ! </strong>  </label>
+                    <br />
+                    <button id="addhw" data-ajax="true" data-confirm="¿Esta seguro de asignar este equipo a la orden?" type="submit" class="btn btn-primary btn-sm" disabled>Agregar Alquiler</button>
+               
+                    <span>
+                        <i class="fa fa-bolt"></i>
+                    </span>
+                 </div>
+
+               
+
+
+    
+       
+
+
         </div>
+        <input hidden id="mitipoelegido" value="@ViewBag.mitipoelegido" />
+         <input hidden id="empresaelegida" value="@ViewBag.empresaelegida" />
+
+
+
 
         //MODAL PARA ACCESORIOS
 
@@ -621,11 +672,22 @@
 
         </script>
 
-        <div class="text-right">
-            <label class="checkbox-inline text-red"><input class="icheck" type="checkbox" id="chkdwn2" value="feedback" /> <strong>  ACEPTAS  AGREGAR ! </strong>  </label>
-            <br />
-            <button id="addhw" data-ajax="true" data-confirm="¿Esta seguro de asignar este equipo a la orden?" type="submit" class="btn btn-primary btn-sm" disabled>Agregar Alquiler</button>
-        </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 }
