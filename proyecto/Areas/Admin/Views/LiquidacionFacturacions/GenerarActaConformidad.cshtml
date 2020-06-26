@@ -58,7 +58,9 @@
                       //   +' cancelButtonColor: "#d33",'
                       confirmButtonText: "Ok"
                   }).then((result) => {
+                     // window.location.href = msg.href
 
+                      window.open( msg.href, '_blank');
                   })
               },
               error: function (result) {

@@ -264,6 +264,7 @@ namespace proyecto.Areas.Admin.Controllers
                 rm.SetResponse(true);
                 rm.message = "Generado correcto";
                 rm.href = "http://192.168.0.9/rentt/reports/acta/ActaConformidad" + nFacturaActa + ".pdf";
+              
             }
             else
             {
@@ -272,7 +273,7 @@ namespace proyecto.Areas.Admin.Controllers
             }
 
 
-            return Json(rm);
+            return Json(rm, JsonRequestBehavior.AllowGet);
         }
 
 
