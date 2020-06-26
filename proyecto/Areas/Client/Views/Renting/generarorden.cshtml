@@ -130,8 +130,9 @@
 
                         <div class="col-sm-6">
                             @Html.LabelFor(x => x.tipohardware, new { @class = "control-label pull-left" })
-                            <div>
-                                <select id="tipohardwaree" name="tipohardware"></select>
+                            <br />  
+                            <div class="col-sm-12" >
+                                <select id="tipohardwaree" name="tipohardware" class="form-control"></select>
                                 @*@Html.TextBoxFor(x => x.tipohardware, new { @class = "input-12", placeholder = "" })*@
                                 @Html.ValidationMessageFor(x => x.tipohardware, null, new { @class = "label label-danger" })
                             </div>
@@ -139,12 +140,29 @@
 
                         <div class="col-sm-6">
                             @Html.LabelFor(x => x.cantidadhardware, new { @class = "control-label pull-left" })
-                            @Html.TextBoxFor(x => x.cantidadhardware, new { @class = "input-12", placeholder = "", id = "cantidad_a_generar" })
-                            <button id="btn_generar" class="btn btn-sm btn-primary">Agregar</button>
+                            <br />
+
+                            <div class="input-group col-sm-12">
+                           
+                                @Html.TextBoxFor(x => x.cantidadhardware, new { @class = "form-control", placeholder = "", id = "cantidad_a_generar" })
+                                @*<button id="btn_generar" class="btn btn-sm btn-primary">Agregar</button>*@
+                                <span class="input-group-addon">
+                                    <i id="btn_generar" class="fa fa-plus bigger-110 text-success" style="cursor:pointer;"></i>
+                                </span>
+                            </div>
                             @Html.ValidationMessageFor(x => x.cantidadhardware, null, new { @class = "label label-danger" })
-
-
                         </div>
+
+                        @*<div class="form-group form-group-sm col-sm-2">
+                            @Html.LabelFor(x => x.fentregaorden, new { @class = "" })
+                            <div class="input-group">
+                                @Html.TextBoxFor(x => x.fentregaorden, new { @class = "form-control datepicker" })
+                                <span class="input-group-addon">
+                                    <i class="fa fa-calendar bigger-110"></i>
+                                </span>
+                                @Html.ValidationMessageFor(x => x.fentregaorden, null, new { @class = "label label-danger" })
+                            </div>
+                        </div>*@
 
                         <hr>
                     </div>
@@ -225,21 +243,21 @@
                         <div id="generado_usuario">
 
                         </div>
+
+                        <div class="col-sm-12">
+                            @Html.LabelFor(x => x.Observacionesorden, new { @class = "control-label pull-left" })
+
+                            @Html.TextAreaFor(x => x.Observacionesorden, new { @class = "input-12" })
+                            @Html.ValidationMessageFor(x => x.Observacionesorden, null, new { @class = "label label-danger" })
+
+                        </div>
+
                         <br />
 
                         <div hidden class="col-sm-12" id="btn_asignar"><button id="asignar_datos_usuario" type="button" class="btn btn-sm btn-primary">Confirmar</button></div>
 
                         <hr />
-                        <div class="col-sm-12">
-
-                            @Html.LabelFor(x => x.Observacionesorden, new { @class = "control-label pull-left" })
-                            
-                                @Html.TextAreaFor(x => x.Observacionesorden, new { @class = "input-12" })
-                                @Html.ValidationMessageFor(x => x.Observacionesorden, null, new { @class = "label label-danger" })
-             
-
-                        </div>
-
+                    
                         <hr>
                     </div>
                 </div>

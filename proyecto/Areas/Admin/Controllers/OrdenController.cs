@@ -532,17 +532,25 @@ namespace proyecto.Areas.Admin.Controllers
         }
         public JsonResult Guardar(Orden model)
         {
+            Usuario user = new Usuario();
             var rm = new ResponseModel();
-    
+
+            var getemp = user.ObtenerPerfil(SessionHelper.GetUser());
+
+            var cuentauser = getemp.cuenta.ToString();
+
 
             if (ModelState.IsValid)
             {
                 rm = model.Guardar();
 
+              
                 if (rm.response)
                 {
 
-                   
+                    RegistrarFacturaMes1(cuentauser, model.factura, model.ftemision, model.idorden,model.codigoorden);
+
+
                     rm.message = "Guardado correctamente";
                     rm.href = Url.Content("~/Admin/orden/");
 
@@ -1082,6 +1090,70 @@ namespace proyecto.Areas.Admin.Controllers
         public ActionResult cambio()
         {
             return View();
+        }
+
+        /*
+         alter procedure [dbo].[RRR_insert_mes1_liquidacionFacturacion]
+@usuarioEjecuto varchar(20),
+@numerofactura varchar(20),
+@fechaemisionfactura varchar(20),
+@codigoorden varchar(20)
+*/
+
+        public bool RegistrarFacturaMes1(string usuarioEjecuto, string numerofactura, string fechaemisionfactura, int idcodigoorden, string codigoorden)
+        {
+            var rm = new ResponseModel();
+
+            var ctx = new ProyectoContext();
+
+            bool res = false; 
+         //   var contador = 0;
+            if (numerofactura != null || numerofactura !="" )
+            {
+              //  string[] Ident = IdentificadorID.Trim().Split(',');
+
+                try
+                {
+                    //foreach (var m in Ident)
+                    //{
+
+                    //var MesFactura = new LiquidacionFacturacion();
+                    // MesFactura.numerodocumento = m;
+
+                //    @usuarioEjecuto varchar(20),
+                //@numerofactura varchar(20),
+                //@fechaemisionfactura varchar(20),
+                //@idcodigoorden varchar(20),
+                //@codigoorden varchar(20)
+                
+
+                                        int filas = ctx.Database.ExecuteSqlCommand("RRR_insert_mes1_liquidacionFacturacion @usuarioEjecuto, @numerofactura, @fechaemisionfactura, @idcodigoorden,@codigoorden ",
+                            new Object[] {
+
+                           new SqlParameter ("@usuarioEjecuto", usuarioEjecuto),
+                           new SqlParameter ("@numerofactura", numerofactura),
+                           new SqlParameter ("@fechaemisionfactura", fechaemisionfactura),
+                                 new SqlParameter ("@idcodigoorden", idcodigoorden),
+                               new SqlParameter ("@codigoorden", codigoorden)
+                            });
+                    //    contador++;
+                    //}
+
+                    //rm.SetResponse(true);
+                    //rm.message = "SE AFECTO[ " + contador + " ]    FILAS";
+                    res = true;
+                }
+                catch (Exception)
+                {
+                    //rm.SetResponse(false);
+                   // rm.message = "Vuelva a intentar ";
+                    res = false;
+                }
+
+            }
+
+
+            return res;
         }
 
     }
